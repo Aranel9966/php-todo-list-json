@@ -15,6 +15,26 @@ createApp({
         this.todoList = response.data;
       });
     },
+    //////////////////
+    addTodo() {
+      //   this.todoList.push(this.newTodo);
+      this.newTodo = "";
+      //?
+      let data = {
+        newTodo: "",
+      };
+
+      data.newTodo = this.newTodo;
+      axios
+        .post("./server.php", data, {
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+        .then((response) => {
+          console.log("prova");
+          // posso ricaricare i todo
+          this.getTodo();
+        });
+    },
   },
   mounted() {
     this.getTodo();
