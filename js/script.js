@@ -17,9 +17,6 @@ createApp({
     },
     //////////////////
     addTodo() {
-      //   this.todoList.push(this.newTodo);
-      this.newTodo = "";
-      //?
       let data = {
         newTodo: "",
       };
@@ -34,6 +31,7 @@ createApp({
           // posso ricaricare i todo
           this.getTodo();
         });
+      this.newTodo = "";
     },
   },
   mounted() {

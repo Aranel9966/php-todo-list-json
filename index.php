@@ -21,7 +21,7 @@
             </li>
         </ul>
     </div>
-    <input v-model="newTodo" class="m-2" type="text">
+    <input @keyup.enter="addTodo()" v-model="newTodo" class="m-2" type="text">
     <button @click='addTodo()' class="btn btn-primary">invia</button>
 
 </div>
