@@ -9,7 +9,7 @@ if(isset($_POST['newTodo'])) {
     // converto in json
     $newTodoJSON = json_encode($todoPhp);
     //slavo il json nel file
-    file_put_contents('todos.json', $newTodoJSON);
+    file_put_contents('todo.json', $newTodoJSON);
 
 }else{
     //mi prendo il todo.json
