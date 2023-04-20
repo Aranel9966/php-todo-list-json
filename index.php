@@ -16,8 +16,8 @@
 <div id="app">
     <div class="card m-3 d-flex justify-content-center ">
         <ul >
-            <li v-for="singleTodo in todoList">
-                {{singleTodo}}
+            <li v-for="(singleTodo,index) in todoList" >
+                {{singleTodo.text}} 
             </li>
         </ul>
     </div>

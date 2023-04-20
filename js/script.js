@@ -15,23 +15,21 @@ createApp({
         this.todoList = response.data;
       });
     },
-    //////////////////
+
     addTodo() {
       let data = {
-        newTodo: "",
+        newTodo: this.newTodo,
       };
-
-      data.newTodo = this.newTodo;
       axios
         .post("./server.php", data, {
           headers: { "Content-Type": "multipart/form-data" },
         })
         .then((response) => {
-          console.log("prova");
+          console.log(response);
           // posso ricaricare i todo
           this.getTodo();
+          this.newTodo = "";
         });
-      this.newTodo = "";
     },
   },
   mounted() {
