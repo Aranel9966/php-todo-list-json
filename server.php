@@ -16,7 +16,6 @@ if(isset($_POST['newTodo'])) {
     $newTodoJSON = json_encode($todoPhp);
     //slavo il json nel file
     file_put_contents('todo.json', $newTodoJSON);
-
 }else{
     //dichiaro alla browser che è un file JSON
     header('Content-type: application/json');
