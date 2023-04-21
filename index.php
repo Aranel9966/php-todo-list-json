@@ -11,18 +11,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- vue 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!--font-awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+
 <div id="app">
-    <div class="card m-3 d-flex justify-content-center ">
-        <ul >
-            <li v-for="(singleTodo,index) in todoList" >
-                {{singleTodo.text}} 
-            </li>
-        </ul>
+    <div class="container">
+        <h1 class="text-center">Lista di cose da fare </h1>
+        <div class="card d-flex justify-content-center "style="width: 18rem; margin:auto">
+            <ul class="text-center">
+                <li class=" m-3 d-flex justify-content-center align-items-center" v-for="(singleTodo,index) in todoList" >
+                    <span :class="singleTodo.status ? 'text-decoration-line-through' : '' " @click="togleTodo(index)">
+                        {{singleTodo.text}} 
+                    </span>
+                    <a class=" m-2"  @click='removeTodo(index)' ><i class="fa-solid fa-trash"></i></button>
+                </li>
+            </ul>
+        </div>
+        <div class=" m-3 d-flex justify-content-center">
+            <input @keyup.enter="addTodo()" v-model="newTodo" class="m-2" type="text">
+            <button @click='addTodo()' class="btn btn-primary">invia</button>
+        </div>
     </div>
-    <input @keyup.enter="addTodo()" v-model="newTodo" class="m-2" type="text">
-    <button @click='addTodo()' class="btn btn-primary">invia</button>
 
 </div>
 <!-- bootstrap -->
